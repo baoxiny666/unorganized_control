@@ -1,0 +1,105 @@
+	.login_kuang{
+		width:300px;
+		height:400px;
+		position:absolute;
+		right: 10%;
+    	top: 35%;
+	}
+	
+	.topimage{
+		font-size:30px;
+		color:#0A6AD0;
+		height:70px;
+		text-align: center;
+		font-weight: 800;
+	}
+	
+	.accountsquare{
+		width:100%;
+		height:46px;
+	}
+	
+	.accountsquare_left{
+		width:250px;
+		height:44px;
+		border:1px solid black;
+		outline: none;
+		
+		border-top-right-radius: 15px;
+		border-top-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+		border-bottom-left-radius: 15px;
+		background:url(/information/static/img/man.png) no-repeat right  center;
+		background-position:right 15px top 15px;
+		margin-left:22px;
+	}
+	
+	.accountsquare_right_image{
+		width:16px;
+		height:16px;
+		background-size:16px 16px;
+	}
+	
+	
+	.passwordsquare{
+		width:100%;
+		height:46px;
+	}
+	
+	
+	.passwordsquare_left{
+		width:250px;
+		height:44px;
+		outline: none;
+		border:1px solid black;
+		border-top-right-radius: 15px;
+		border-top-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+		border-bottom-left-radius: 15px;
+		background:url(/information/static/img/lock.png) no-repeat right center;
+		background-position:right 15px top 15px;
+		margin-left:22px;
+	}
+	
+	
+	.passwordsquare_right_image{
+		
+		background-size:16px 16px;
+		width:16px;
+		height:16px;
+	
+	}
+	
+	
+	
+	.loginbutton{
+		width:100%;
+		height:40px;
+	}
+	
+	
+	.loginbutton_button{
+		width: 230px;
+		height: 40px;
+		background-color: #0A6AD0;
+		border: 0px;
+		color: #ffffff;
+		font-size: 18px;
+		font-weight: bold;
+		margin-left:30px;
+	}
+	
+	.zhibstitle{
+		text-align:center;
+		font-size:28px;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 500;
+		font-family: 'Nunito', sans-serif;
+		position:absolute;
+		bottom: 437px;
+    	right: 82px;
+	}
+	
+	
+	

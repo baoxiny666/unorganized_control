@@ -1,0 +1,16 @@
+package com.lhtg.unorganized_control;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication(exclude = MybatisAutoConfiguration.class)
+@MapperScan("com.lhtg.unorganized_control.mapper")
+public class UnorganizedControlApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(UnorganizedControlApplication.class, args);
+    }
+
+}
