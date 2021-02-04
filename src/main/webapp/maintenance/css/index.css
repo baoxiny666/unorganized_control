@@ -13,6 +13,13 @@ html,body{width:100%;height:100%}
 	background:#393D49;
 }
 
+
+#wholeList{
+	width:100%;
+	height:calc(100% - 60px);
+}
+
+
 .top .top_left_one{
 	width:20px;
 	height:60px;

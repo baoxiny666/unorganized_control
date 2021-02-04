@@ -1,5 +1,4 @@
-package com.lhtg.unorganized_control.config;/*
-package com.itheima.springboot_scan_bxy.config;
+package com.lhtg.unorganized_control.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -8,23 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-
-*/
-
-import com.alibaba.druid.pool.DruidDataSource;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.mybatis.spring.SqlSessionFactoryBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-/**
- * @Date: 2018-12-26 12:05
- * @version: v1.0
- * @Description: mybatis stater从某个版本后去掉了自动配置，需要用config配置
- */
 
 @Configuration
 public class MyBatisConfig {
