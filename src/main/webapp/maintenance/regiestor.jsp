@@ -44,23 +44,44 @@
 						<option value="5">5</option>
 						<option value="6">6</option>
 					</select>
-				<span>日期时间：</span><input class="easyui-datebox" id="startTime"></input>
-				<span>至</span>&nbsp;<input class="easyui-datebox" id="endTime"></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-search'">查询</a>&nbsp;&nbsp;&nbsp;
-				<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'">导入</a>&nbsp;&nbsp;&nbsp;
-				<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'">导出</a>&nbsp;&nbsp;&nbsp;
-				<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-print'">打印</a>
+				<span>日期时间：</span><input class="easyui-datetimebox" id="startTime"></input>
+				<span>至</span>&nbsp;<input class="easyui-datetimebox" id="endTime"></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:reloadData()" data-options="plain:true,iconCls:'icon-search'">查询</a>&nbsp;&nbsp;&nbsp;
+				<a href="javascript:void(0)" onclick="javascript:doExcelIn()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'">导入</a>&nbsp;&nbsp;&nbsp;
+				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'">导出</a>&nbsp;&nbsp;&nbsp;
+				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-print'">打印</a>
 			</div>
-			<table  id="regiestFormTable" style="width:1650px;height:780px"
-				   	data-options="
-						rownumbers:true,
-						singleSelect:false,
-						autoRowHeight:false,
-						pagination:true,
-						pageSize:10">
+			<table  id="regiestFormTable" style="width:1650px;height:800px">
 
 			</table>
-		</div>
+
+
+			<div class="easyui-window" title="上传附件" id="excelInWindow" style="display:none;" closed="true">
+				<div>
+					<div class="datagrid-toolbar">
+						<script type="text/javascript">
+							function showMessageDialog_excelIn(params){
+								var content = '<iframe src="'+params+'" width="100%" height="100%"  frameborder="0"></iframe>';
+								$("#excelInWindow").window({
+									content:content,
+									title: "导入文件",
+									width: 900,
+									modal: false,
+									closed: false,
+									height: 350,
+									inline:false,
+									onClose:function(){
+										$(this).window("close");
+									}
+								});
+								$("#excelInWindow").window("center");
+							}
+						</script>
+					</div>
+				</div>
+			</div>
+
+			</div>
 	</div>
 </body>
 </html>

@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class ParkLedgerLaster {
+
+    private Integer xh;    //序号
     private String licensePlate;//车牌号
     private String environmentalCode;
     private String registerDate;

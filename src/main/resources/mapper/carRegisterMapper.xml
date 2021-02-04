@@ -1,42 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-	<mapper namespace="com.lhtg.unorganized_control.mapper.CarRegisterMapper">
-		<select id="select" parameterType="com.lhtg.unorganized_control.entity.ParkLedgerLaster"  resultType="com.lhtg.unorganized_control.entity.ParkLedgerLaster">
-			select (@i:=@i+1) xh,rqm.* from (
-				select
-					pll.LicensePlate licensePlate,
-					pll.CDateTime cDateTime,
-					pll.EnvironmentalCode environmentalCode,
-					pll.RegisterDate registerDate,
-					pll.VIN vIN,
-					pll.EngineNO engineNo,
-					pll.AccompanyList accompanyList,
-					pll.DrivingLicense drivingLicense,
-					pll.DischargeStage disChargeStage,
-					pll.ShipmentName shipmentName,
-					pll.FreightVolume freightVolumn,
-					pll.MotorcadeName motorCadeName,
-					DATE_FORMAT(pll.CDateTime,'%Y-%m-%d  %H:%i:%s') cDateTime
-				from Park_LedgerLaster pll
-				where 1=1
-					<if test="licensePlate != null and licensePlate !=''">
-						and pll.LicensePlate = #{licensePlate}
-					</if>
-					<if test="disChargeStage != null and disChargeStage !='' ">
-						and pll.DischargeStage = #{disChargeStage}
-					</if>
-					<if test="motorCadeName != null and motorCadeName !='' ">
-						and pll.MotorcadeName = #{motorCadeName}
-					</if>
-					<if test="startTime != null and startTime !='' ">
-						and  STR_TO_DATE(pll.CDateTime,'%Y-%m-%d') &gt;= #{startTime}
-					</if>
-					<if test="endTime != null and endTime !='' ">
-						and  STR_TO_DATE(pll.CDateTime,'%Y-%m-%d') &lt;=  #{endTime}
-					</if>
-				order by STR_TO_DATE(sr.CDateTime,'%Y-%m-%d %H:%i:%s') desc
-			) rqm,(select @i:=0) t
-			order by xh asc
-		</select>
-	</mapper>
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhtg.unorganized_control.mapper.CarRegisterMapper">
+    <select id="chazhao" parameterType="com.lhtg.unorganized_control.entity.ParkLedgerLaster" resultType="com.lhtg.unorganized_control.entity.ParkLedgerLaster">
+            select
+                pll.LicensePlate licensePlate,
+                pll.CDateTime cDateTime,
+                pll.EnvironmentalCode environmentalCode,
+                pll.RegisterDate registerDate,
+                pll.VIN vIN,
+                pll.EngineNO engineNo,
+                pll.AccompanyList accompanyList,
+                pll.DrivingLicense drivingLicense,
+                pll.DischargeStage disChargeStage,
+                pll.ShipmentName shipmentName,
+                pll.FreightVolume freightVolumn,
+                pll.MotorcadeName motorCadeName,
+                CONVERT(varchar(100), pll.CDateTime, 20) cDateTime
+                 /*DATE_FORMAT(pll.CDateTime,'%Y-%m-%d  %H:%i:%s') cDateTime*/
+            from Park_LedgerLaster pll
+    </select>
+
+</mapper>

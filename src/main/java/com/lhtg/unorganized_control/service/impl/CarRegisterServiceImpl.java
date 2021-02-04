@@ -16,7 +16,7 @@ public class CarRegisterServiceImpl implements CarRegisterService {
 
     @Override
     public List<ParkLedgerLaster> select(ParkLedgerLaster parkLedgerLaster) {
-        List<ParkLedgerLaster> parkLedgerLastersList= carRegisterMapper.select(parkLedgerLaster);
+        List<ParkLedgerLaster> parkLedgerLastersList= carRegisterMapper.chazhao(parkLedgerLaster);
         return parkLedgerLastersList;
     }
 }

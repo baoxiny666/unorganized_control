@@ -1,16 +1,15 @@
 var config = {
 	"regiestorConfig":[
-		{"field":"ck","checkbox":"true"},
-		{field:"xh",title:"序号",width:50,align:"center",hidden:"true"},
-		{field:"cDateTime",title:"创建时间",width:150,align:"center"},
+		{field:"ck",checkbox:"true"},
 		{field:"licensePlate",title:"车牌号",width:80,align:"center"},
+		{field:"CDateTime",title:"创建时间",width:200,align:"center"},
 		{field:"environmentalCode",title:"环保编码",width:150,align:"center"},
 		{field:"registerDate",title:"注册日期",width:150,align:"center"},
-		{field:"vIN",title:"车辆识别代码",width:140,align:"center"},
+		{field:"VIN",title:"车辆识别代码",width:140,align:"center"},
 		{field:"engineNo",title:"发动机号码",width:140,align:"center"},
 		{field:"disChargeStage",title:"排放阶段",width:200,align:"center"},
-		{field:"accompanyList",title:"随车清单",width:200,align:"center"},
-		{field:"drivingLicense",title:"行驶证",width:200,align:"center"},
+		{field:"accompanyList",title:"随车清单",width:400,align:"center"},
+		{field:"drivingLicense",title:"行驶证",width:400,align:"center"},
 		{field:"motorCadeName",title:"车队名称",width:200,align:"center"}
 	]
 };
@@ -44,6 +43,7 @@ function search_column_isneed(formid){
 
 
 function onload_colunmn(){
+
 	$("#regiestFormTable").datagrid({
 		url:basePath+"/api/carRegister/select",
 		title:"",
@@ -52,7 +52,7 @@ function onload_colunmn(){
 		pagination:true,
 		rownumbers:true,
 		onBeforeLoad:beforeLoad,
-		pageSize:5,   //表格中每页显示的行数
+		pageSize:25,   //表格中每页显示的行数
 		pageList:[25,50,100],
 		loadMsg:"数据正在努力加载，请稍后...",
 		singleSelect:false,
@@ -66,6 +66,11 @@ function onload_colunmn(){
 	})
 }
 
+
+function doExcelIn(){
+	var excelInUrl = basePath+"/maintenance/excelIn.jsp";
+	showMessageDialog_excelIn(excelInUrl);
+}
 
 
 /*时间处理*/
@@ -94,7 +99,7 @@ function timeformat(value) {
 
 function reloadData() {
 	try {
-		$("#tt").datagrid("reload");
+		$("#regiestFormTable").datagrid("reload");
 
 	} catch (e) {
 
@@ -103,7 +108,7 @@ function reloadData() {
 function beforeLoad(param) {
 	param.licensePlate = $("#licensePlate").val();
 	param.motorCadeName = $("#motorCadeName").val();
-	param.motorCadeName = $("#motorCadeName").val();
+	param.disChargeStage = $("#disChargeStage").val();
 	param.startTime = $("#startTime").val();
 	param.endTime = $("#endTime").val();
 }
@@ -122,5 +127,10 @@ function getMyDate(value){
 	}
 }
 
+function accompanyList(){
+}
 
+function drivingLicense(){
+
+}
 

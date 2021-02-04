@@ -88,6 +88,7 @@
             <version>1.3.2</version>
         </dependency>
 
+
         <!--德鲁伊设置-->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -160,6 +161,14 @@
                 <includes>
                     <include>**/**</include>
                 </includes>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <!-- 是否替换资源中的属性-->
+                <filtering>false</filtering>
             </resource>
         </resources>
         <plugins>
