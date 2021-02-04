@@ -1,0 +1,20 @@
+[{
+  "id":1,
+  "text":"无组织管控车辆",
+  "attributes":{"url":""},
+  "children":[{
+      "id":11,
+      "text":"车辆登记台账",
+      "attributes":{"url":"./regiestor.jsp"}
+    },
+    {
+      "id":11,
+      "text":"A台账车辆进出",
+      "attributes":{"url":"./inoutA.jsp"}
+    },
+    {
+      "id":11,
+      "text":"B台账车辆进出",
+      "attributes":{"url":"./inoutA.jsp"}
+    }]
+}]

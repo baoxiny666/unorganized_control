@@ -23,8 +23,8 @@ public class CarRegisterController {
 
     //查询车辆登记信息
     @RequestMapping("/select")
-    public String  select(ParkLedgerLaster parkLedgerLaster){
-        PageHelper.startPage(parkLedgerLaster.getCurrentPage(),parkLedgerLaster.getPageSize());
+    public String  select(Integer page, Integer rows,ParkLedgerLaster parkLedgerLaster){
+        PageHelper.startPage(page,rows);
         List<ParkLedgerLaster> list = carRegisterService.select(parkLedgerLaster);
         PageInfo<ParkLedgerLaster> pageInfo = new PageInfo<>(list);
         String content = JSON.toJSONString(pageInfo);

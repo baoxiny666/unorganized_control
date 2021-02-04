@@ -7,8 +7,8 @@ public class ParkLedgerLaster {
     private String licensePlate;//车牌号
     private String environmentalCode;
     private String registerDate;
-    private String vIN;
-    private String engineNo;
+    private String vIN;//车辆识别代码
+    private String engineNo;//发动机编号
     private String disChargeStage;//排放阶段
 
     private String accompanyList;//随车清单
