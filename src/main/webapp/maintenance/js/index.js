@@ -5,7 +5,6 @@
 			url: basePath+'maintenance/json/tree.json',
 			method: 'get',
 			onClick:function(node){
-				debugger
 				var url;
 				if(node.id == 12){
 					url=node.attributes.url +encodeURI(encodeURI("CT000001,CT000003,CT000009"));

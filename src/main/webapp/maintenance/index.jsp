@@ -19,7 +19,6 @@
 
 	</script>
 	<script type="text/javascript" src="<%=basePath%>static/easyui/jquery.min.js"></script>
-	<script src="<%=basePath%>static/js/base64_ie.js"></script>
 	<script type="text/javascript" src="<%=basePath%>static/easyui/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="<%=basePath%>static/easyui/locale/easyui-lang-zh_CN.js"></script>
 	<link rel="shortcut icon" type="image/x-icon" href="<%=basePath%>static/img/favicon.ico" media="screen" />
@@ -27,17 +26,15 @@
 	<link rel="stylesheet" type="text/css" href="<%=basePath%>static/easyui/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="<%=basePath%>maintenance/css/index.css">
 	<link rel="stylesheet" href="<%=basePath%>static/css/layer.css"/>
-
 	<script type="text/javascript" src="<%=basePath%>static/js/layer.js?v=76"></script>
-
-	<title>无组织管理台账</title>
+	<title>无组织管控AB台账</title>
 </head>
 <body style="width:100%;height:100%;background-attachment: fixed; overflow-x: hidden; overflow-y: hidden;    margin: 0;" border="1px" margin="0px" padding="0px">
     <div class="top">
 	  	<div class="top_left_one">
 	  	</div>
 	  	<div class="top_left_two">
-	  		台账相关
+	  		进出台账
 	  	</div>
 	  	<div class="top_right_one">
 	  		<div class="login_pic">

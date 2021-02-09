@@ -1,22 +1,22 @@
 var config = {
 	"inoutConfig":[
-		{field:"ck",checkbox:"true"},
+		{field:"ck",checkbox:"true",width:100},
 		{field:"inLicensePlate",title:"车牌号",width:100,align:"center"},
 		{field:"inControllerNo",title:"入口编号",width:100,align:"center",hidden:true},
 		{field:"fullName",title:"入口名称",width:100,align:"center"},
 		{field:"inDateTime",title:"入场时间",width:150,align:"center",formatter:timeformat},
 		{field:"iutDateTime",title:"出场时间",width:150,align:"center",formatter:timeformat},
-		{field:"inPhoto",title:"入场图片",width:250,align:"center"},
-		{field:"outPhoto",title:"出厂图片",width:250,align:"center"},
+		{field:"inPhoto",title:"入场图片",width:250,align:"center",formatter:chaoLianjie},
+		{field:"outPhoto",title:"出厂图片",width:250,align:"center",formatter:chaoLianjie},
 		{field:"environmentalCode",title:"环保编码",width:120,align:"center"},
 		{field:"registerDate",title:"注册日期",width:120,align:"center",formatter:getMyDate},
 		{field:"vin",title:"车辆识别代码",width:180,align:"center"},
 		{field:"engineNO",title:"发动机号码",width:180,align:"center"},
 		{field:"disChargeStage",title:"排放阶段",width:80,align:"center"},
 		{field:"disChargeStageName",title:"排放阶段中文",width:80,align:"center",hidden:true},
-		{field:"accompanyList",title:"随车清单",width:180,align:"center"},
-		{field:"drivingLicense",title:"行驶证",width:180,align:"center"},
-		{field:"motorcadeName",title:"车队名称",width:180,align:"center"}
+		{field:"accompanyList",title:"随车清单",width:180,align:"center",formatter:chaoLianjie},
+		{field:"drivingLicense",title:"行驶证",width:180,align:"center",formatter:chaoLianjie},
+		{field:"motorCadeName",title:"车队名称",width:180,align:"center"}
 	]
 }
 
@@ -115,6 +115,13 @@ function beforeLoad(param) {
 	param.controllerDoor = controllerDoor;
 }
 
+
+function chaoLianjie(value, row, index){
+
+	return "<a href='" + value + "' target='_blank'>"+value+"</a>";
+	// if(value != null || value)
+	// return "<a href='" + row.ExamPlaceID + "' target='_blank'>绑定考生</a>";
+}
 
 
 function getMyDate(value){

@@ -69,13 +69,13 @@ public interface ABAccountMapper {
             ") as cte )" +
             " select * from eeeinner where 1=1 " +
             " <if test=\"inLicensePlate != null and inLicensePlate !=''\">" +
-            "   and eeeinner.InLicensePlate like concat('%',#{inLicensePlate},'%') " +
+            "   and eeeinner.InLicensePlate like '%' + #{inLicensePlate} + '%' " +
             " </if>" +
             "<if test=\"disChargeStage != null and disChargeStage !=''and disChargeStage !='-1' \">" +
             " and eeeinner.DischargeStage = #{disChargeStage}" +
             "</if>" +
             "<if test=\"motorCadeName != null and motorCadeName !='' \">" +
-            " and eeeinner.MotorcadeName like concat('%',#{motorCadeName},'%') " +
+            " and eeeinner.MotorcadeName like '%' + #{motorCadeName} + '%' " +
             "</if>" +
             "<if test=\"startTime != null and startTime !='' \">" +
             " and   CONVERT(datetime, eeeinner.InDateTime, 23) &gt;= #{startTime}" +

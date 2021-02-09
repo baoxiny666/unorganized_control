@@ -14,10 +14,8 @@
 		var path = '<%=path%>';
 		var basePath = '<%=basePath%>';
 		var controllerDoor = '<%=controllerDoor%>';
-		alert(controllerDoor);
 	</script>
 	<script type="text/javascript" src="<%=basePath%>static/easyui/jquery.min.js"></script>
-	<script src="<%=basePath%>static/js/base64_ie.js"></script>
 	<script type="text/javascript" src="<%=basePath%>static/easyui/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="<%=basePath%>static/easyui/locale/easyui-lang-zh_CN.js"></script>
 	<link rel="shortcut icon" type="image/x-icon" href="<%=basePath%>static/img/favicon.ico" media="screen" />
@@ -51,7 +49,7 @@
 		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:reloadData()" data-options="plain:true,iconCls:'icon-search'">查询</a>&nbsp;&nbsp;&nbsp;
 		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'">导出</a>&nbsp;&nbsp;&nbsp;
 	</div>
-	<table  id="inoutTable" style="width:1650px;height:800px">
+	<table  id="inoutTable" style="width:100%;height:800px">
 
 	</table>
 </body>
