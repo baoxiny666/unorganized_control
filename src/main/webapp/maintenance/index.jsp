@@ -40,7 +40,7 @@
 	  		<div class="login_pic">
 	  			<img alt="" width="25px" height="25px" src="<%=basePath%>maintenance/img/login_user.png">
 	  		</div>
-	  		<div class="login_user">${username}</div>
+	  		<div class="login_user">${localStorage.getItem('wuzuzuser')}</div>
 	  		<div class="login_quit" onclick="login_quit()">
 	  			<img alt="退出登录" width="20px" height="20px" src="<%=basePath%>maintenance/img/login_user_quit.png">
 	  		</div>

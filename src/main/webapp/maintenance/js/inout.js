@@ -23,7 +23,6 @@ var config = {
 
 $(function(){
 	onload_colunmn();
-	controllerDoor = window.Base64.decode(controllerDoor);
 	$(document).keydown(function (event) {
 		if (event.keyCode == 13) { //keyCode=13是回车键
 			$('.dianjsoso').triggerHandler('click');
