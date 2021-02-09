@@ -70,7 +70,63 @@ function onload_colunmn(){
 	})
 }
 
+function  exportGridData(){
+	var options = $("#inoutTable" ).datagrid("getPager").data("pagination").options;
+	var wuzuZhipageNum = options.pageNumber;
+	var wuzuZhisize = options.pageSize;
+	console.log(pageNum+"----"+size)
 
+
+	var form=$("<form>"); //定义一个form表单,通过form表单来发送请求
+	form.attr("style","display:none");  //设置表单状态为不显示
+	form.attr("method","post");//method属性设置请求类型为post
+	form.attr("action",basePath + "/api/abAccount/exportGridData");//action属性设置请求路径，请求类型是post时,路径后面跟参数的方式不可用，可以通过表单中的input来传递参数
+	$("body").append(form);//将表单放置在web中
+	var input1=$("<input>"); //在表单中添加input标签来传递参数，如有多个参数可添加多个input标签
+	input1.attr("type","hidden");//设置为隐藏域
+	input1.attr("name","wuZuzhiCurrentPage");//设置参数名称
+	input1.attr("value",wuzuZhipageNum);//设置参数值
+
+
+	var input2=$("<input>"); //
+	input2.attr("type","hidden");//设置为隐藏域
+	input2.attr("name","motorCadeName");//设置参数名称
+	input2.attr("value",$("#motorCadeName").val());//设置参数值
+
+	var input3=$("<input>"); //
+	input3.attr("type","hidden");//设置为隐藏域
+	input3.attr("name","inLicensePlate");//设置参数名称
+	input3.attr("value",$("#inLicensePlate").val());//设置参数值
+
+	var input4=$("<input>"); //
+	input4.attr("type","hidden");//设置为隐藏域
+	input4.attr("name","disChargeStage");//设置参数名称
+	input4.attr("value",$("#disChargeStage").val());//设置参数值
+
+	var input5=$("<input>"); //
+	input5.attr("type","hidden");//设置为隐藏域
+	input5.attr("name","startTime");//设置参数名称
+	input5.attr("value",$("#startTime").val());//设置参数值
+
+	var input6=$("<input>"); //
+	input6.attr("type","hidden");//设置为隐藏域
+	input6.attr("name","endTime");//设置参数名称
+	input6.attr("value",$("#endTime").val());//设置参数值
+
+
+	var input7=$("<input>"); //
+	input7.attr("type","hidden");//设置为隐藏域
+	input7.attr("name","controllerDoor");//设置参数名称
+	input7.attr("value",controllerDoor);//设置参数值
+
+	var input8=$("<input>"); //
+	input8.attr("type","hidden");//设置为隐藏域
+	input8.attr("name","wuZuzhiPageSize");//设置参数名称
+	input8.attr("value",wuzuZhisize);//设置参数值
+
+	form.append(input1).append(input2).append(input3).append(input4).append(input5).append(input6).append(input7).append(input8);//添加到表单中
+	form.submit();//表单提交
+}
 
 
 /*时间处理*/
@@ -112,6 +168,7 @@ function beforeLoad(param) {
 	param.startTime = $("#startTime").val();
 	param.endTime = $("#endTime").val();
 	param.controllerDoor = controllerDoor;
+	param.inControllerNo = $("#inControllerNo").val();
 }
 
 

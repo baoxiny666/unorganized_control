@@ -31,8 +31,11 @@ public class ABAccount {
     private String startTime;//开始时间
     private String endTime;//结束时间
 
-    private Integer currentPage;//当前页
-    private Integer pageSize;//每一页显示的条数
+    private Integer wuZuzhiCurrentPage;//当前页
+    private Integer wuZuzhiPageSize;//每一页显示的条数
     private List<String> controllerDoorList;
     private String controllerDoor;//门信息
+
+
+
 }

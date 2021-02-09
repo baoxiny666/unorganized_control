@@ -71,11 +71,14 @@ public interface ABAccountMapper {
             " <if test=\"inLicensePlate != null and inLicensePlate !=''\">" +
             "   and eeeinner.InLicensePlate like '%' + #{inLicensePlate} + '%' " +
             " </if>" +
-            "<if test=\"disChargeStage != null and disChargeStage !=''and disChargeStage !='-1' \">" +
+            "<if test=\"disChargeStage != null and disChargeStage !='' and disChargeStage !='-1' \">" +
             " and eeeinner.DischargeStage = #{disChargeStage}" +
             "</if>" +
             "<if test=\"motorCadeName != null and motorCadeName !='' \">" +
             " and eeeinner.MotorcadeName like '%' + #{motorCadeName} + '%' " +
+            "</if>" +
+            "<if test=\" inControllerNo != null and  inControllerNo != '' and inControllerNo !='-1' \">" +
+            " and eeeinner.InControllerNo =  #{inControllerNo}  " +
             "</if>" +
             "<if test=\"startTime != null and startTime !='' \">" +
             " and   CONVERT(datetime, eeeinner.InDateTime, 23) &gt;= #{startTime}" +

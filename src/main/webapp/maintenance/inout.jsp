@@ -31,6 +31,18 @@
 	<div id="ttt">
 		<span>车牌号：</span><input type="text" id="inLicensePlate">
 		<span>车队名称：</span><input type="text" id="motorCadeName">
+		<span>门信息：</span>
+		<select style="width: 150px;" id="inControllerNo">
+			<option value="-1">全部</option>
+			<option value="CT000013">一号门入口</option>
+			<option value="CT000003">二号门入口</option>
+			<option value="CT000005">四号门入口</option>
+			<option value="CT000007">五号门入口</option>
+			<option value="CT000009">六号门入口</option>
+			<option value="CT000015">九号门南进口</option>
+			<option value="CT000016">九号门北进口</option>
+			<option value="CT000011">十一号门入口</option>
+		</select>
 		<span>排放阶段：</span>
 		<select style="width: 150px;" id="disChargeStage">
 			<option value="-1">全部</option>
@@ -47,7 +59,7 @@
 		<span>日期时间：</span><input class="easyui-datetimebox" id="startTime"></input>
 		<span>至</span>&nbsp;<input class="easyui-datetimebox" id="endTime"></input>
 		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:reloadData()" data-options="plain:true,iconCls:'icon-search'">查询</a>&nbsp;&nbsp;&nbsp;
-		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'">导出</a>&nbsp;&nbsp;&nbsp;
+		<a href="javascript:void(0)" class="easyui-linkbutton"  onclick="javascript:exportGridData()" data-options="plain:true,iconCls:'icon-remove'">导出</a>&nbsp;&nbsp;&nbsp;
 	</div>
 	<table  id="inoutTable" style="width:100%;height:800px">
 
