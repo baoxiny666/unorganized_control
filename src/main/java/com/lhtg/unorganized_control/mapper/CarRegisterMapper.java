@@ -5,7 +5,6 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 import java.util.List;
-// " row_number() over (order by pll.CDateTime desc) xh,\n" +
 @Repository
 public interface CarRegisterMapper {
     @Select("<script>  select\n" +

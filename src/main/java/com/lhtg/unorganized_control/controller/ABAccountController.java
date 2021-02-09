@@ -1,44 +1,52 @@
 package com.lhtg.unorganized_control.controller;
 
-import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.lhtg.unorganized_control.entity.ABAccount;
 import com.lhtg.unorganized_control.entity.ParkLedgerLaster;
+import com.lhtg.unorganized_control.service.ABAccountService;
 import com.lhtg.unorganized_control.service.CarRegisterService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.github.pagehelper.Page;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.ArrayList;
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
+import org.apache.commons.codec.binary.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/carRegister")
-public class CarRegisterController {
+@RequestMapping("/api/abAccount")
+public class ABAccountController {
 
 
     @Autowired
-    private CarRegisterService carRegisterService;
+    private ABAccountService aBAccountService;
 
-    //查询车辆登记信息
+    //查询AB台账信息
     @RequestMapping("/select")
-    public String  select(Integer page, Integer rows,ParkLedgerLaster parkLedgerLaster){
+    public String  select(Integer page, Integer rows, ABAccount aBAccount){
         Page pages = PageHelper.startPage(page,rows);
-        List<ParkLedgerLaster> list = carRegisterService.select(parkLedgerLaster);
-        PageInfo<ParkLedgerLaster> pageInfo = new PageInfo<>(list);
+        String ControllerDoor = new String(Base64.decodeBase64(aBAccount.getControllerDoor()));
+        String[] doors = ControllerDoor.split(",");
+        StringBuilder sbDoors = new StringBuilder();
+        for(int i=0;i<doors.length;i++){
+            if(i!=doors.length-1){
+                sbDoors.append("'"+doors[i]+"',");
+            }else{
+                sbDoors.append("'"+doors[i]+"'");
+            }
+
+        }
+        aBAccount.setControllerDoor(sbDoors.toString());
+        List<ABAccount> list = aBAccountService.select(aBAccount);
+        PageInfo<ABAccount> pageInfo = new PageInfo<>(list);
         Long total = pages.getTotal();
         Map map = new HashMap();
         map.put("total", total);
