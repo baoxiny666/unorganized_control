@@ -2,6 +2,9 @@
 	var cunchu;
 	$(function(){
 		cunchu  = localStorage.getItem("wuzuzuser");
+		cunchuName  = localStorage.getItem("wuzuzusername");
+		$(".login_user").empty();
+		$(".login_user").html(cunchuName);
 		if(cunchu == null || cunchu == undefined || cunchu == ''){
 			window.location.href = basePath+"/login/login.jsp";
 		}else{
