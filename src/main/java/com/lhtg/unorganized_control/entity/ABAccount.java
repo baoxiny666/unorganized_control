@@ -3,6 +3,7 @@ package com.lhtg.unorganized_control.entity;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 //关于AB台账相关
 @Data
@@ -21,17 +22,17 @@ public class ABAccount {
     private String engineNO;//发动机编号
     private String disChargeStage;//排放阶段
 
-    private String dischargeStageName;//排放阶段名字
+    private String disChargeStageName;//排放阶段名字
 
     private String accompanyList;//随车清单
     private String drivingLicense;//行驶证
-    private String motorcadeName;//车队名称
+    private String motorCadeName;//车队名称
 
     private String startTime;//开始时间
     private String endTime;//结束时间
 
     private Integer currentPage;//当前页
     private Integer pageSize;//每一页显示的条数
-
+    private List<String> controllerDoorList;
     private String controllerDoor;//门信息
 }

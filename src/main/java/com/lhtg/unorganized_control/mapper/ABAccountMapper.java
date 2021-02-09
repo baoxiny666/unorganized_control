@@ -19,7 +19,7 @@ public interface ABAccountMapper {
                     "RegisterDate registerDate," +
                     "VIN vin," +
                     "EngineNO engineNO," +
-                    "DischargeStage dischargeStage," +
+                    "DischargeStage disChargeStage," +
                     "case DischargeStage " +
                         "when '0' then '国0' " +
                         "when '1' then '国1' " +
@@ -30,47 +30,46 @@ public interface ABAccountMapper {
                         "when '6' then '国6' " +
                         "when 'D' then '电动' " +
                         "when 'X' then '无排放阶段' " +
-                        "else DischargeStage " +
-                    " end as 'dischargeStageName'," +
+                        " else DischargeStage " +
+                    " end as 'disChargeStageName'," +
                     "AccompanyList accompanyList," +
                     "DrivingLicense drivingLicense," +
                     "ShipmentName shipmentName," +
                     "FreightVolume freightVolume," +
-                    "MotorcadeName motorcadeName," +
+                    "MotorcadeName motorCadeName," +
                     "InPhoto inPhoto," +
-                    "OutPhoto outPhoto" +
+                    "OutPhoto outPhoto " +
             "from(" +
-                    "select" +
+                    "select " +
                         "b.InLicensePlate,b.InDateTime,b.OutDateTime," +
                         "a.EnvironmentalCode,a.RegisterDate,a.VIN,a.EngineNO," +
                         "a.DischargeStage,b.Photo_In as InPhoto,b.Photo_Out as OutPhoto," +
                         "a.AccompanyList,a.DrivingLicense,a.ShipmentName,a.FreightVolume,a.MotorcadeName,b.InControllerNo,pct.FullName " +
                         " from Park_Ledger a " +
-                        "inner join Park_InDataDetail b on b.CardInID=a.CardInID " +
-                        "left join Park_Controller pct on pct.ControllerNo = b.InControllerNo " +
-                    "union all " +
-                    "select" +
+                        " inner join Park_InDataDetail b on b.CardInID=a.CardInID " +
+                        " left join Park_Controller pct on pct.ControllerNo = b.InControllerNo " +
+                    " union all " +
+                    " select " +
                         " b.InLicensePlate,b.InDateTime,b.OutDateTime," +
                         " a.EnvironmentalCode,a.RegisterDate,a.VIN,a.EngineNO," +
                         " a.DischargeStage,b.Photo_In as InPhoto,b.Photo_Out as OutPhoto," +
                         " a.AccompanyList,a.DrivingLicense,a.ShipmentName,a.FreightVolume,a.MotorcadeName,b.InControllerNo,pct.FullName " +
-                    "from Park_Ledger a " +
-                    "inner join Park_InOutDataDetail b on b.CardInOutID=a.CardInID " +
-                    "left join Park_Controller pct on pct.ControllerNo = b.InControllerNo " +
-                    "union all" +
-                    "select " +
+                    " from Park_Ledger a " +
+                    " inner join Park_InOutDataDetail b on b.CardInOutID=a.CardInID " +
+                    " left join Park_Controller pct on pct.ControllerNo = b.InControllerNo " +
+                    " union all " +
+                    " select " +
                         " b.InLicensePlate,b.InDateTime,b.OutDateTime," +
                         " a.EnvironmentalCode,a.RegisterDate,a.VIN,a.EngineNO," +
                         " a.DischargeStage,b.Photo_In as InPhoto,b.Photo_Out as OutPhoto," +
                         " a.AccompanyList,a.DrivingLicense,a.ShipmentName,a.FreightVolume,a.MotorcadeName,b.InControllerNo,pct.FullName " +
-                    "from Park_Ledger a " +
-                    "inner join Park_InOutDataDetail2 b on b.CardInOutID=a.CardInID " +
-                    "left join Park_Controller pct on pct.ControllerNo = b.InControllerNo " +
-            ") as cte" +
-            "      )" +
-            "select * from eeeinner where 1=1 " +
+                    " from Park_Ledger a " +
+                    " inner join Park_InOutDataDetail2 b on b.CardInOutID=a.CardInID " +
+                    " left join Park_Controller pct on pct.ControllerNo = b.InControllerNo " +
+            ") as cte )" +
+            " select * from eeeinner where 1=1 " +
             " <if test=\"inLicensePlate != null and inLicensePlate !=''\">" +
-            "   and eeeinner.inLicensePlate like concat('%',#{inLicensePlate},'%') " +
+            "   and eeeinner.InLicensePlate like concat('%',#{inLicensePlate},'%') " +
             " </if>" +
             "<if test=\"disChargeStage != null and disChargeStage !=''and disChargeStage !='-1' \">" +
             " and eeeinner.DischargeStage = #{disChargeStage}" +
@@ -84,7 +83,7 @@ public interface ABAccountMapper {
             "<if test=\"endTime != null and endTime !='' \">" +
             " and   CONVERT(datetime, eeeinner.InDateTime, 23) &lt;=  #{endTime}" +
             "</if>"+
-            " and  eeeinner.InControllerNo IN (#{controllerDoor})   order by eeeinner.InDateTime desc " +
+            " and  eeeinner.InControllerNo IN <foreach  item='item' index='index' collection='controllerDoorList' open='(' separator=',' close=')'>#{item}</foreach>   order by eeeinner.InDateTime desc " +
             "</script>")
     List<ABAccount> select(ABAccount aBAccount);
 }

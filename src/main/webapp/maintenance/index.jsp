@@ -4,6 +4,8 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
+
+
 %>
 <!DOCTYPE html>
 <html>
@@ -14,6 +16,7 @@
 		var basePath = '<%=basePath%>';
 		var username = '${username}';
 		var uuidindex = '${uuidindex}';
+
 	</script>
 	<script type="text/javascript" src="<%=basePath%>static/easyui/jquery.min.js"></script>
 	<script src="<%=basePath%>static/js/base64_ie.js"></script>
@@ -56,7 +59,7 @@
 					<span>无组织管控车辆</span>
 					<ul class="main_left">
 						<li onclick="qiehuan(this);"  attributes="<%=basePath%>maintenance/regiestor.jsp"><span>车辆登记台账</span></li>
-						<li onclick="qiehuan(this);"  attributes="<%=basePath%>maintenance/inoutA.jsp"><span>A台账车辆进出</span></li>
+						<li onclick="qiehuan(this);"  attributes="<%=basePath%>maintenance/inout.jsp"><span>A台账车辆进出</span></li>
 						<li onclick="qiehuan(this);"  attributes="<%=basePath%>maintenance/inoutB.jsp"><span>B台账车辆进出</span></li>
 					</ul
 				</li>--%>

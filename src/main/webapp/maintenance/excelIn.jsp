@@ -21,13 +21,15 @@
     <link rel="stylesheet" type="text/css" href="<%=basePath%>static/easyui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="<%=basePath%>static/easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="<%=basePath%>maintenance/css/excelIn.css">
-<script type="text/javascript">
+    <script type="text/javascript">
 
 </script>
 </head>
 <body style="width:100%;height:100%;" border="1px" margin="0px" padding="0px">
-	<form id="excelInfile" method="post" style="line-height: 59px; " enctype="multipart/form-data" target="dummyiframe">
-        <input class="easyui-filebox" label="导入文件:" labelPosition="top" data-options="prompt:'请选择文件" style="width:100%">
+	<form id="excelInfile" method="post" style="line-height: 59px;" enctype="multipart/form-data" target="dummyiframe">
+        <a href="javascript:;" class="file">点击上传文件
+            <input type="file" id="fileUpload" name="files" >
+        <%--<input class="easyui-filebox" label="导入文件:" id="file" name="file" labelPosition="top" data-options="prompt:'请选择文件" style="width:100%">--%>
     </form>
 
     <div style="text-align:center;padding:5px 0;clear:both">

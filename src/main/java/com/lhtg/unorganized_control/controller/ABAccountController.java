@@ -11,12 +11,16 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.poi.ss.usermodel.Cell;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.codec.EncodingException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 import org.apache.commons.codec.binary.Base64;
+
+import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,20 +35,12 @@ public class ABAccountController {
 
     //查询AB台账信息
     @RequestMapping("/select")
-    public String  select(Integer page, Integer rows, ABAccount aBAccount){
+    public String  select(Integer page, Integer rows, ABAccount aBAccount) throws Exception {
         Page pages = PageHelper.startPage(page,rows);
-        String ControllerDoor = new String(Base64.decodeBase64(aBAccount.getControllerDoor()));
+        String ControllerDoor = java.net.URLDecoder.decode(aBAccount.getControllerDoor(), "UTF-8");
+        //String ControllerDoor = new String(Base64.decodeBase64(aBAccount.getControllerDoor()));
         String[] doors = ControllerDoor.split(",");
-        StringBuilder sbDoors = new StringBuilder();
-        for(int i=0;i<doors.length;i++){
-            if(i!=doors.length-1){
-                sbDoors.append("'"+doors[i]+"',");
-            }else{
-                sbDoors.append("'"+doors[i]+"'");
-            }
-
-        }
-        aBAccount.setControllerDoor(sbDoors.toString());
+        aBAccount.setControllerDoorList(Arrays.asList(doors));
         List<ABAccount> list = aBAccountService.select(aBAccount);
         PageInfo<ABAccount> pageInfo = new PageInfo<>(list);
         Long total = pages.getTotal();

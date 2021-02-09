@@ -37,15 +37,18 @@
 				<span>排放阶段：</span>
 					<select style="width: 150px;" id="disChargeStage">
 						<option value="-1">全部</option>
+						<option value="0">0</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
 						<option value="4">4</option>
 						<option value="5">5</option>
 						<option value="6">6</option>
+						<option value="D">电动</option>
+						<option value="X">无排放阶段</option>
 					</select>
 				<span>日期时间：</span><input class="easyui-datetimebox" id="startTime"></input>
-				<span>至</span>&nbsp;<input class="easyui-datetimebox" id="endTime"></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>至</span>&nbsp;<input class="easyui-datetimebox" id="endTime"></input>
 				<a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:reloadData()" data-options="plain:true,iconCls:'icon-search'">查询</a>&nbsp;&nbsp;&nbsp;
 				<a href="javascript:void(0)" onclick="javascript:doExcelIn()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'">导入</a>&nbsp;&nbsp;&nbsp;
 				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'">导出</a>&nbsp;&nbsp;&nbsp;
