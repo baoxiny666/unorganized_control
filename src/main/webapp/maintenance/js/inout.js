@@ -74,7 +74,7 @@ function  exportGridData(){
 	var options = $("#inoutTable" ).datagrid("getPager").data("pagination").options;
 	var wuzuZhipageNum = options.pageNumber;
 	var wuzuZhisize = options.pageSize;
-	console.log(pageNum+"----"+size)
+
 
 
 	var form=$("<form>"); //定义一个form表单,通过form表单来发送请求

@@ -123,64 +123,64 @@ public class ABAccountController {
             ABAccount excelABAccount = list.get(i);
             HSSFCell cell_record0 = rowrecord.createCell(0);
             cell_record0.setCellStyle(style);
-            cell_record0.setCellValue(excelABAccount.getInLicensePlate());
+            cell_record0.setCellValue(excelABAccount.getInLicensePlate()==null?"":excelABAccount.getInLicensePlate());
 
 
             HSSFCell cell_record1 = rowrecord.createCell(1);
             cell_record1.setCellStyle(style);
-            cell_record1.setCellValue(excelABAccount.getFullName());
+            cell_record1.setCellValue(excelABAccount.getFullName()==null?"":excelABAccount.getFullName());
 
             HSSFCell cell_record2 = rowrecord.createCell(2);
             cell_record2.setCellStyle(style);
-            cell_record2.setCellValue(excelABAccount.getInDateTime());
+            cell_record2.setCellValue(excelABAccount.getInDateTime().toString()==null?"":excelABAccount.getInDateTime().toString());
 
             HSSFCell cell_record3 = rowrecord.createCell(3);
             cell_record3.setCellStyle(style);
-            cell_record3.setCellValue(excelABAccount.getOutDateTime());
+            cell_record3.setCellValue(excelABAccount.getOutDateTime()==null?"":excelABAccount.getOutDateTime().toString());
 
             HSSFCell cell_record4 = rowrecord.createCell(4);
             cell_record4.setCellStyle(style);
-            cell_record4.setCellValue(excelABAccount.getInPhoto());
+            cell_record4.setCellValue(excelABAccount.getInPhoto()==null?"":excelABAccount.getInPhoto());
 
             HSSFCell cell_record5 = rowrecord.createCell(5);
             cell_record5.setCellStyle(style);
-            cell_record5.setCellValue(excelABAccount.getOutPhoto());
+            cell_record5.setCellValue(excelABAccount.getOutPhoto()==null?"":excelABAccount.getOutPhoto());
 
             HSSFCell cell_record6 = rowrecord.createCell(6);
             cell_record6.setCellStyle(style);
-            cell_record6.setCellValue(excelABAccount.getEnvironmentalCode());
+            cell_record6.setCellValue(excelABAccount.getEnvironmentalCode()==null?"":excelABAccount.getEnvironmentalCode());
 
 
             HSSFCell cell_record7 = rowrecord.createCell(7);
             cell_record7.setCellStyle(style);
-            cell_record7.setCellValue(excelABAccount.getRegisterDate());
+            cell_record7.setCellValue(excelABAccount.getRegisterDate()==null?"":excelABAccount.getRegisterDate().toString());
 
             HSSFCell cell_record8 = rowrecord.createCell(8);
             cell_record8.setCellStyle(style);
-            cell_record8.setCellValue(excelABAccount.getVin());
+            cell_record8.setCellValue(excelABAccount.getVin()==null?"":excelABAccount.getVin());
 
             HSSFCell cell_record9 = rowrecord.createCell(9);
             cell_record9.setCellStyle(style);
-            cell_record9.setCellValue(excelABAccount.getEngineNO());
+            cell_record9.setCellValue(excelABAccount.getEngineNO()==null?"":excelABAccount.getEngineNO());
 
 
             HSSFCell cell_record10 = rowrecord.createCell(10);
             cell_record10.setCellStyle(style);
-            cell_record10.setCellValue(excelABAccount.getDisChargeStage());
+            cell_record10.setCellValue(excelABAccount.getDisChargeStage()==null?"":excelABAccount.getDisChargeStage());
 
 
             HSSFCell cell_record11 = rowrecord.createCell(11);
             cell_record11.setCellStyle(style);
-            cell_record11.setCellValue(excelABAccount.getAccompanyList());
+            cell_record11.setCellValue(excelABAccount.getAccompanyList()==null?"":excelABAccount.getAccompanyList());
 
 
             HSSFCell cell_record12 = rowrecord.createCell(12);
             cell_record12.setCellStyle(style);
-            cell_record12.setCellValue(excelABAccount.getDrivingLicense());
+            cell_record12.setCellValue(excelABAccount.getDrivingLicense()==null?"":excelABAccount.getDrivingLicense());
 
             HSSFCell cell_record13 = rowrecord.createCell(13);
             cell_record13.setCellStyle(style);
-            cell_record13.setCellValue(excelABAccount.getMotorCadeName());
+            cell_record13.setCellValue(excelABAccount.getMotorCadeName()==null?"":excelABAccount.getMotorCadeName());
 
 
             currentRow++;
@@ -192,11 +192,11 @@ public class ABAccountController {
         byte[] content = os.toByteArray();
         InputStream is = new ByteArrayInputStream(content);
         // 设置response参数，可以打开下载页面
-//        getResponse().reset();
-//        getResponse().setContentType("application/vnd.ms-excel;charset=utf-8");
-//        getResponse().setHeader("Content-Disposition", "attachment;filename="+ new String((wlCodeString  + ".xls").getBytes(), "iso-8859-1"));
-//
-//        ServletOutputStream out = getResponse().getOutputStream();
+        response.reset();
+        response.setContentType("application/vnd.ms-excel;charset=utf-8");
+        response.setHeader("Content-Disposition", "attachment;filename="+ new String(("grid.xls").getBytes(), "iso-8859-1"));
+
+        ServletOutputStream out = response.getOutputStream();
         BufferedInputStream bis = null;
         BufferedOutputStream bos = null;
 
@@ -219,8 +219,6 @@ public class ABAccountController {
                 bos.close();
         }
 
-
-        return "";
     }
 
 
