@@ -39,7 +39,7 @@
             <div class="body_bg2">
                 <span class="user_name"></span>用户名:</span><input id="username_bg"><br>
                 <div style="height:10px;"></div>
-                &nbsp;&nbsp;&nbsp;<span class="user_password">密码:</span><input id="password_bg">
+                &nbsp;&nbsp;&nbsp;<span class="user_password">密码:</span><input type="password" id="password_bg">
             </div>
             <div class="body_bottom_bg">
                 <div class="user_bottom" onclick="loginCheck()">

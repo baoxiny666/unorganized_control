@@ -25,6 +25,34 @@
 	<link rel="stylesheet" href="<%=basePath%>static/css/layer.css"/>
 	<script type="text/javascript" src="<%=basePath%>maintenance/js/inout.js?v=666"></script>
 	<script type="text/javascript" src="<%=basePath%>static/js/layer.js?v=76"></script>
+
+	<script>
+
+		$.extend($.fn.datagrid.methods, {
+			fixRownumber : function (jq) {
+				return jq.each(function () {
+					var panel = $(this).datagrid("getPanel");
+					var clone = $(".datagrid-cell-rownumber", panel).last().clone();
+					clone.css({
+						"position" : "absolute",
+						left : -1000
+					}).appendTo("body");
+					var width = clone.width("auto").width();
+					if (width > 25) {
+						//多加5个像素,保持一点边距
+						$(".datagrid-header-rownumber,.datagrid-cell-rownumber", panel).width(width + 5);
+						$(this).datagrid("resize");
+						//一些清理工作
+						clone.remove();
+						clone = null;
+					} else {
+						//还原成默认状态
+						$(".datagrid-header-rownumber,.datagrid-cell-rownumber", panel).removeAttr("style");
+					}
+				});
+			}
+		});
+	</script>
 	<title>无组织管理台账</title>
 </head>
 <body style="width:100%;height:100%;background-attachment: fixed; overflow-x: hidden; overflow-y: hidden;margin: 0;" border="1px" margin="0px" padding="0px">
@@ -43,6 +71,8 @@
 			<option value="CT000016">九号门北进口</option>
 			<option value="CT000011">十一号门入口</option>
 		</select>
+
+
 		<span>排放阶段：</span>
 		<select style="width: 150px;" id="disChargeStage">
 			<option value="-1">全部</option>

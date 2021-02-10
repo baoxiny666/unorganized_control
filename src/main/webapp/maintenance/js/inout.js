@@ -5,7 +5,7 @@ var config = {
 		{field:"inControllerNo",title:"入口编号",width:100,align:"center",hidden:true},
 		{field:"fullName",title:"入口名称",width:100,align:"center"},
 		{field:"inDateTime",title:"入场时间",width:150,align:"center",formatter:timeformat},
-		{field:"iutDateTime",title:"出场时间",width:150,align:"center",formatter:timeformat},
+		{field:"outDateTime",title:"出场时间",width:150,align:"center",formatter:timeformat},
 		{field:"inPhoto",title:"入场图片",width:250,align:"center",formatter:chaoLianjie},
 		{field:"outPhoto",title:"出厂图片",width:250,align:"center",formatter:chaoLianjie},
 		{field:"environmentalCode",title:"环保编码",width:120,align:"center"},
@@ -63,6 +63,7 @@ function onload_colunmn(){
 		singleSelect:false,
 		onLoadSuccess:function(data) {
 			$("#inoutTable").datagrid("clearChecked");
+			$('#inoutTable').datagrid('fixRownumber');
 		},onDblClickRow :function(index,row){
 
 		}
@@ -132,7 +133,7 @@ function  exportGridData(){
 /*时间处理*/
 function timeformat(value) {
 	if(value == null){
-		return "---";
+		return "";
 	}else{
 		var date = new Date(value.time);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
 		var Y = date.getFullYear() + '-';

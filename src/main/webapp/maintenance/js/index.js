@@ -27,6 +27,9 @@
 			method: 'get',
 			onClick:function(node){
 				var url;
+				if(node.id == 1){
+					return
+				}
 				if(node.id == 12){
 					url=node.attributes.url +encodeURI(encodeURI("CT000001,CT000003,CT000009"));
 
@@ -48,6 +51,9 @@
 			method: 'get',
 			onClick:function(node){
 				var url;
+				if(node.id == 1){
+					return
+				}
 				if(node.id == 12){
 					url=node.attributes.url +encodeURI(encodeURI("CT000001,CT000003,CT000009"));
 
@@ -69,6 +75,9 @@
 			method: 'get',
 			onClick:function(node){
 				var url;
+				if(node.id == 1){
+					return
+				}
 				if(node.id == 12){
 					url=node.attributes.url +encodeURI(encodeURI("CT000001,CT000003,CT000009"));
 
