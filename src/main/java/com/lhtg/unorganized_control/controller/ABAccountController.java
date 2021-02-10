@@ -40,6 +40,10 @@ public class ABAccountController {
     //查询AB台账信息
     @RequestMapping("/exportGridData")
     public void  exportGridData(HttpServletResponse response,ABAccount aBAccount) throws Exception {
+        String strDateYmdhmsFormat = "yyyy-MM-dd HH:mm:ss";
+        String strDateYmdFormat = "yyyy-MM-dd";
+        SimpleDateFormat sdfYmdhms = new SimpleDateFormat(strDateYmdhmsFormat);
+        SimpleDateFormat sdfYmd = new SimpleDateFormat(strDateYmdFormat);
         Page pages = PageHelper.startPage(aBAccount.getWuZuzhiCurrentPage(),aBAccount.getWuZuzhiPageSize());
         String ControllerDoor = java.net.URLDecoder.decode(aBAccount.getControllerDoor(), "UTF-8");
         String[] doors = ControllerDoor.split(",");
@@ -132,11 +136,12 @@ public class ABAccountController {
 
             HSSFCell cell_record2 = rowrecord.createCell(2);
             cell_record2.setCellStyle(style);
-            cell_record2.setCellValue(excelABAccount.getInDateTime().toString()==null?"":excelABAccount.getInDateTime().toString());
+            cell_record2.setCellValue(excelABAccount.getInDateTime().toString()==null?"":sdfYmdhms.format(excelABAccount.getInDateTime()));
+
 
             HSSFCell cell_record3 = rowrecord.createCell(3);
             cell_record3.setCellStyle(style);
-            cell_record3.setCellValue(excelABAccount.getOutDateTime()==null?"":excelABAccount.getOutDateTime().toString());
+            cell_record3.setCellValue(excelABAccount.getOutDateTime()==null?"":sdfYmdhms.format(excelABAccount.getOutDateTime()));
 
             HSSFCell cell_record4 = rowrecord.createCell(4);
             cell_record4.setCellStyle(style);
@@ -153,7 +158,7 @@ public class ABAccountController {
 
             HSSFCell cell_record7 = rowrecord.createCell(7);
             cell_record7.setCellStyle(style);
-            cell_record7.setCellValue(excelABAccount.getRegisterDate()==null?"":excelABAccount.getRegisterDate().toString());
+            cell_record7.setCellValue(excelABAccount.getRegisterDate()==null?"":sdfYmd.format(excelABAccount.getRegisterDate()));
 
             HSSFCell cell_record8 = rowrecord.createCell(8);
             cell_record8.setCellStyle(style);
