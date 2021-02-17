@@ -32,15 +32,15 @@
 		if(username == "admin" && password == "abtaiz"){
 			localStorage.setItem("wuzuzuser","admin");
 			localStorage.setItem("wuzuzusername","超级管理员");
-			window.location.href = basePath+"/maintenance/index.jsp"
+			window.location.href = basePath+"/maintenance/index"
 		}else if(username == "Aaccount" && password == "123456"){
 			localStorage.setItem("wuzuzuser","Aaccount");
 			localStorage.setItem("wuzuzusername","A台账");
-			window.location.href = basePath+"/maintenance/index.jsp"
+			window.location.href = basePath+"/maintenance/index"
 		}else if(username == "Baccount" && password == "123456"){
 			localStorage.setItem("wuzuzuser","Baccount");
 			localStorage.setItem("wuzuzusername","B台账");
-			window.location.href = basePath+"/maintenance/index.jsp"
+			window.location.href = basePath+"/maintenance/index"
 		}else{
 			alert("您输入的用户名或密码错误！！！！")
 		}

@@ -7,11 +7,11 @@
     {
       "id":12,
       "text":"A台账车辆进出",
-      "attributes":{"url":"./inout.jsp?controllerDoor="}
+      "attributes":{"url":"inout?controllerDoor="}
     },
     {
       "id":13,
       "text":"B台账车辆进出",
-      "attributes":{"url":"./inout.jsp?controllerDoor="}
+      "attributes":{"url":"inout?controllerDoor="}
     }]
 }]

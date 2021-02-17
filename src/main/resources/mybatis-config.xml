@@ -4,9 +4,7 @@
 	    "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	<properties>
-		<property name="dialect" value="sqlserver" />
-	</properties>
+
 	<settings>
 		<!-- 这个配置使全局的映射器启用或禁用缓存。系统默认值是true，设置只是为了展示出来 -->
 		<setting name="cacheEnabled" value="true" />
@@ -23,14 +21,6 @@
 		<setting name="defaultExecutorType" value="SIMPLE" />
 		<!--设置超时时间，它决定驱动等待一个数据库响应的时间。 系统默认值是null，设置只是为了展示出来 -->
 		<setting name="defaultStatementTimeout" value="25000" />
+		<setting name="logImpl" value="STDOUT_LOGGING" />
 	</settings>
-	<plugins>
-		<plugin interceptor="com.github.pagehelper.PageHelper">
-			<property name="dialect" value="sqlserver" />
-			<property name="offsetAsPageNum" value="true" />
-			<property name="rowBoundsWithCount" value="true" />
-			<property name="pageSizeZero" value="true" />
-			<property name="reasonable" value="true" />
-		</plugin>
-	</plugins>
 </configuration>

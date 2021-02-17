@@ -6,7 +6,7 @@
 		$(".login_user").empty();
 		$(".login_user").html(cunchuName);
 		if(cunchu == null || cunchu == undefined || cunchu == ''){
-			window.location.href = basePath+"/login/login.jsp";
+			window.location.href = basePath+"/";
 		}else{
 			if(cunchu == 'admin'){
 				createTreeAdmin()
@@ -94,5 +94,5 @@
 
 	function login_quit(){
 		localStorage.clear();
-		window.location.href = basePath +"/login/login.jsp";
+		window.location.href = basePath +"/";
 	}

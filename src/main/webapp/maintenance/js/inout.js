@@ -38,7 +38,10 @@ function refreash(){
 
 	}
 }
-
+function showMessagePicsLL(params){
+	var urls = basePath + "/api/abAccount/getImages?name="+params;
+	showMessagePics(urls);
+}
 
 function search_column_isneed(formid){
 
@@ -58,7 +61,7 @@ function onload_colunmn(){
 		rownumbers:true,
 		onBeforeLoad:beforeLoad,
 		pageSize:25,   //表格中每页显示的行数
-		pageList:[25,50,100],
+		pageList:[25,50,100,200],
 		loadMsg:"数据正在努力加载，请稍后...",
 		singleSelect:false,
 		onLoadSuccess:function(data) {
@@ -174,8 +177,7 @@ function beforeLoad(param) {
 
 
 function chaoLianjie(value, row, index){
-
-	return "<a href='" + value + "' target='_blank'>"+value+"</a>";
+	return "<a onclick=showMessagePicsLL('"+encodeURI(encodeURI(value.replaceAll("\\","$")))+"') href='javascript:void(0)' >"+value+"</a>";
 	// if(value != null || value)
 	// return "<a href='" + row.ExamPlaceID + "' target='_blank'>绑定考生</a>";
 }

@@ -1,17 +1,20 @@
 server :
-  port :  9009
+  port :  9869
   tomcat:
     uri-encoding: UTF-8
 
 spring:
   datasource:
-      jdbc-url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=zjsysbxytq
+      url: jdbc:sqlserver://10.32.2.237:1433;DatabaseName=hxjy
       username: sa
-      password: qwer1234com
+      password: 123456
       driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
       type: com.alibaba.druid.pool.DruidDataSource
 
-#配置分页插件
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
 #pagehelper分页插件
 pagehelper:
   helper-dialect: sqlserver
@@ -20,13 +23,8 @@ pagehelper:
   params:
     count: countSql
 
-
-
-
-
 mybatis:
-  mapper-locations: classpath*:mapper/*.xml
+  mapper-locations: classpath*:/resources/mapper/*Mapper.xml
   type-aliases-package: com.lhtg.unorganized_control.mapper
   configLocation:
     classpath: mybatis-config.xml
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

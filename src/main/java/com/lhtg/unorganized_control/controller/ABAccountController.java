@@ -21,6 +21,7 @@ import sun.misc.BASE64Encoder;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -36,6 +37,38 @@ public class ABAccountController {
 
     @Autowired
     private ABAccountService aBAccountService;
+    //图片流
+    @RequestMapping("getImages")
+    public void getImages(HttpServletRequest request, HttpServletResponse response, String name)  throws IOException {
+        if(null !=name && !name.equals("")){
+            String picName = java.net.URLDecoder.decode(name, "UTF-8");
+            FileInputStream fis = null;
+            OutputStream os = null;
+            String exchagePicNames= picName.replace("$", "\\");
+            System.out.println(exchagePicNames+"+====================================");
+            try {
+                //公共服务器目录地址
+                fis = new FileInputStream(exchagePicNames);
+                os = response.getOutputStream();
+                int count = 0;
+                byte[] buffer = new byte[1024 * 8];
+                while ((count = fis.read(buffer)) != -1) {
+                    os.write(buffer, 0, count);
+                    os.flush();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    fis.close();
+                    os.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
 
     //查询AB台账信息
     @RequestMapping("/exportGridData")
