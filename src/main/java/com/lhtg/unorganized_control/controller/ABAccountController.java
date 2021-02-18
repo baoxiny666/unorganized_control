@@ -40,7 +40,7 @@ public class ABAccountController {
     //图片流
     @RequestMapping("getImages")
     public void getImages(HttpServletRequest request, HttpServletResponse response, String name)  throws IOException {
-        if(null !=name && !name.equals("")){
+        if(null !=name && !"".equals(name)){
             String picName = java.net.URLDecoder.decode(name, "UTF-8");
             FileInputStream fis = null;
             OutputStream os = null;
@@ -147,10 +147,17 @@ public class ABAccountController {
         cell_12.setCellStyle(style);
         cell_12.setCellValue("行驶证");
 
-
         HSSFCell cell_13 = row0.createCell(13);
         cell_13.setCellStyle(style);
-        cell_13.setCellValue("车队名称");
+        cell_13.setCellValue("运输货物名称");
+
+        HSSFCell cell_14 = row0.createCell(14);
+        cell_14.setCellStyle(style);
+        cell_14.setCellValue("运输量");
+
+        HSSFCell cell_15 = row0.createCell(15);
+        cell_15.setCellStyle(style);
+        cell_15.setCellValue("车队名称");
 
 
         int currentRow = 1;
@@ -217,7 +224,17 @@ public class ABAccountController {
 
             HSSFCell cell_record13 = rowrecord.createCell(13);
             cell_record13.setCellStyle(style);
-            cell_record13.setCellValue(excelABAccount.getMotorCadeName()==null?"":excelABAccount.getMotorCadeName());
+            cell_record13.setCellValue(excelABAccount.getShipmentName()==null?"":excelABAccount.getShipmentName());
+
+            HSSFCell cell_record14 = rowrecord.createCell(14);
+            cell_record14.setCellStyle(style);
+            cell_record14.setCellValue(excelABAccount.getFreightVolume()==null?"":excelABAccount.getFreightVolume());
+
+            HSSFCell cell_record15 = rowrecord.createCell(15);
+            cell_record15.setCellStyle(style);
+            cell_record15.setCellValue(excelABAccount.getMotorCadeName()==null?"":excelABAccount.getMotorCadeName());
+
+
 
 
             currentRow++;
@@ -266,7 +283,12 @@ public class ABAccountController {
         String ControllerDoor = java.net.URLDecoder.decode(aBAccount.getControllerDoor(), "UTF-8");
         //String ControllerDoor = new String(Base64.decodeBase64(aBAccount.getControllerDoor()));
         String[] doors = ControllerDoor.split(",");
-        aBAccount.setControllerDoorList(Arrays.asList(doors));
+        if(doors.length == 1 && "-1".equals(doors[0])){
+
+        }else{
+            aBAccount.setControllerDoorList(Arrays.asList(doors));
+        }
+
         List<ABAccount> list = aBAccountService.select(aBAccount);
         PageInfo<ABAccount> pageInfo = new PageInfo<>(list);
         Long total = pages.getTotal();

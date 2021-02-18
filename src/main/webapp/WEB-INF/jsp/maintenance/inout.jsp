@@ -69,6 +69,7 @@
 			<option value="CT000009">六号门入口</option>
 			<option value="CT000015">九号门南进口</option>
 			<option value="CT000016">九号门北进口</option>
+			<option value="CT000001">十号门入口</option>
 			<option value="CT000011">十一号门入口</option>
 		</select>
 

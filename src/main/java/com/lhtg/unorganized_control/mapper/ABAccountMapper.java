@@ -86,7 +86,10 @@ public interface ABAccountMapper {
             "<if test=\"endTime != null and endTime !='' \">" +
             " and   CONVERT(datetime, eeeinner.InDateTime, 23) &lt;=  #{endTime}" +
             "</if>"+
-            " and  eeeinner.InControllerNo IN <foreach  item='item' index='index' collection='controllerDoorList' open='(' separator=',' close=')'>#{item}</foreach>   order by eeeinner.InDateTime desc " +
+            "<if test=\"controllerDoorList != null and controllerDoorList.size > 0 \">" +
+            " and  eeeinner.InControllerNo IN <foreach  item='item' index='index' collection='controllerDoorList' open='(' separator=',' close=')'>#{item}</foreach> "+
+            "</if>"+
+            " order by eeeinner.InDateTime desc " +
             "</script>")
     List<ABAccount> select(ABAccount aBAccount);
 }

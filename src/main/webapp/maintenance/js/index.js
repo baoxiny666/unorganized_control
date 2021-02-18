@@ -1,18 +1,20 @@
 	var address;
 	var cunchu;
 	$(function(){
+		debugger;
 		cunchu  = localStorage.getItem("wuzuzuser");
-		cunchuName  = localStorage.getItem("wuzuzusername");
-		$(".login_user").empty();
-		$(".login_user").html(cunchuName);
 		if(cunchu == null || cunchu == undefined || cunchu == ''){
 			window.location.href = basePath+"/";
 		}else{
-			if(cunchu == 'admin'){
+			var jsonJob = JSON.parse(cunchu);
+			cunchuName  = jsonJob.data.wuzuzusername;
+			$(".login_user").empty();
+			$(".login_user").html(cunchuName);
+			if(jsonJob.data.wuzuzuser == 'admin'){
 				createTreeAdmin()
-			}else if(cunchu == 'Aaccount'){
+			}else if(jsonJob.data.wuzuzuser == 'lhtgto'){
 				createTreeA()
-			}else if(cunchu == 'Baccount'){
+			}else if(jsonJob.data.wuzuzuser == 'comesl'){
 				createTreeB()
 			}
 		}
@@ -28,13 +30,13 @@
 			onClick:function(node){
 				var url;
 				if(node.id == 1){
-					return
+					return;
 				}
-				if(node.id == 12){
+				if(node.id == 13){
 					url=node.attributes.url +encodeURI(encodeURI("CT000001,CT000003,CT000009"));
 
-				}else if(node.id == 13){
-					url=node.attributes.url + encodeURI(encodeURI("CT000013,CT000005,CT000007,CT000015,CT000016,CT000011"));
+				}else if(node.id == 12){
+					url=node.attributes.url + encodeURI(encodeURI("-1"));
 				}
 
 				$('#centeriframe').empty();
@@ -54,11 +56,11 @@
 				if(node.id == 1){
 					return
 				}
-				if(node.id == 12){
+				if(node.id == 13){
 					url=node.attributes.url +encodeURI(encodeURI("CT000001,CT000003,CT000009"));
 
-				}else if(node.id == 13){
-					url=node.attributes.url + encodeURI(encodeURI("CT000013,CT000005,CT000007,CT000015,CT000016,CT000011"));
+				}else if(node.id == 12){
+					url=node.attributes.url + encodeURI(encodeURI("-1"));
 				}
 
 				$('#centeriframe').empty();
@@ -78,11 +80,12 @@
 				if(node.id == 1){
 					return
 				}
-				if(node.id == 12){
+
+				if(node.id == 13){
 					url=node.attributes.url +encodeURI(encodeURI("CT000001,CT000003,CT000009"));
 
-				}else if(node.id == 13){
-					url=node.attributes.url + encodeURI(encodeURI("CT000013,CT000005,CT000007,CT000015,CT000016,CT000011"));
+				}else if(node.id == 12){
+					url=node.attributes.url + encodeURI(encodeURI("-1"));
 				}
 
 				$('#centeriframe').empty();

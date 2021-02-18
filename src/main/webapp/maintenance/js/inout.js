@@ -16,6 +16,8 @@ var config = {
 		{field:"disChargeStageName",title:"排放阶段中文",width:80,align:"center",hidden:true},
 		{field:"accompanyList",title:"随车清单",width:180,align:"center",formatter:chaoLianjie},
 		{field:"drivingLicense",title:"行驶证",width:180,align:"center",formatter:chaoLianjie},
+		{field:"shipmentName",title:"运输货物名称",width:80,align:"center"},
+		{field:"freightVolume",title:"运输量",width:80,align:"center"},
 		{field:"motorCadeName",title:"车队名称",width:180,align:"center"}
 	]
 }
@@ -61,7 +63,7 @@ function onload_colunmn(){
 		rownumbers:true,
 		onBeforeLoad:beforeLoad,
 		pageSize:25,   //表格中每页显示的行数
-		pageList:[25,50,100,200],
+		pageList:[25,50,100,200,500,1000],
 		loadMsg:"数据正在努力加载，请稍后...",
 		singleSelect:false,
 		onLoadSuccess:function(data) {

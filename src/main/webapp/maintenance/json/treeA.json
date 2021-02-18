@@ -6,7 +6,7 @@
   "children":[
     {
       "id":12,
-      "text":"A台账车辆进出",
+      "text":"联合特钢公司台账",
       "attributes":{"url":"inout?controllerDoor="}
     }]
 }]

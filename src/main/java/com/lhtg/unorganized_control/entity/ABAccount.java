@@ -22,6 +22,10 @@ public class ABAccount {
     private String engineNO;//发动机编号
     private String disChargeStage;//排放阶段
 
+    private String freightVolume;//运输量
+
+    private String shipmentName;//运输货物名称
+
     private String disChargeStageName;//排放阶段名字
 
     private String accompanyList;//随车清单

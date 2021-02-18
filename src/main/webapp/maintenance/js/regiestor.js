@@ -46,7 +46,7 @@
 			rownumbers:true,
 			onBeforeLoad:beforeLoad,
 			pageSize:25,   //表格中每页显示的行数
-			pageList:[25,50,100],
+			pageList:[25,50,100,500,1000],
 			loadMsg:"数据正在努力加载，请稍后...",
 			singleSelect:false,
 			onLoadSuccess:function(data) {
