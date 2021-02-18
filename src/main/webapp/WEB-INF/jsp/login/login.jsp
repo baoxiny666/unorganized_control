@@ -17,6 +17,7 @@
     var basePath = '<%=basePath%>';
 </script>
 <script type="text/javascript" src="<%=basePath%>easyui/jquery.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/common.js?v=88"></script>
 <link rel="shortcut icon" type="image/x-icon" href="<%=basePath%>img/favicon.ico" media="screen" />
 <link  href="<%=basePath%>login/css/login.css?v=88"/>
 <script type="text/javascript" src="<%=basePath%>login/js/login.js?v=54"></script>

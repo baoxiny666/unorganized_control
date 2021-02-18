@@ -25,12 +25,10 @@ var config = {
 
 $(function(){
 	onload_colunmn();
-	$(document).keydown(function (event) {
-		if (event.keyCode == 13) { //keyCode=13是回车键
-			$('.dianjsoso').triggerHandler('click');
-		}
-	});
 })
+
+
+
 
 function refreash(){
 	try {

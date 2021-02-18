@@ -1,7 +1,7 @@
 	var address;
 	var cunchu;
 	$(function(){
-		debugger;
+
 		cunchu  = localStorage.getItem("wuzuzuser");
 		if(cunchu == null || cunchu == undefined || cunchu == ''){
 			window.location.href = basePath+"/";
@@ -27,7 +27,13 @@
 			checkbox: false,
 			url: basePath+'maintenance/json/tree.json',
 			method: 'get',
-			onClick:function(node){
+			onSelect:function(node){},
+			onLoadSuccess:function(node,data){
+
+				$("#tree li:eq(1)").find("div").addClass("tree-node-selected").click();   //设置第一个节点高亮
+
+			},onClick:function(node){
+
 				var url;
 				if(node.id == 1){
 					return;
@@ -51,6 +57,12 @@
 			checkbox: false,
 			url: basePath+'maintenance/json/treeA.json',
 			method: 'get',
+			onSelect:function(node){},
+			onLoadSuccess:function(node,data){
+
+				$("#tree li:eq(1)").find("div").addClass("tree-node-selected").click();   //设置第一个节点高亮
+
+			},
 			onClick:function(node){
 				var url;
 				if(node.id == 1){
@@ -75,6 +87,12 @@
 			checkbox: false,
 			url: basePath+'maintenance/json/treeB.json',
 			method: 'get',
+			onSelect:function(node){},
+			onLoadSuccess:function(node,data){
+
+				$("#tree li:eq(1)").find("div").addClass("tree-node-selected").click();   //设置第一个节点高亮
+
+			},
 			onClick:function(node){
 				var url;
 				if(node.id == 1){
