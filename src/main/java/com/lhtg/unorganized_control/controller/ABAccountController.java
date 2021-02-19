@@ -222,7 +222,7 @@ public class ABAccountController {
 
             HSSFCell cell_record10 = rowrecord.createCell(10);
             cell_record10.setCellStyle(style);
-            cell_record10.setCellValue(excelABAccount.getDisChargeStage()==null?"":excelABAccount.getDisChargeStage());
+            cell_record10.setCellValue(excelABAccount.getDisChargeStageName()==null?"":excelABAccount.getDisChargeStageName());
 
 
             HSSFCell cell_record11 = rowrecord.createCell(11);

@@ -77,13 +77,13 @@
 		<span>排放阶段：</span>
 		<select style="width: 150px;" id="disChargeStage">
 			<option value="-1">全部</option>
-			<option value="0">0</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
+			<option value="0">国0</option>
+			<option value="1">国1</option>
+			<option value="2">国2</option>
+			<option value="3">国3</option>
+			<option value="4">国4</option>
+			<option value="5">国5</option>
+			<option value="6">国6</option>
 			<option value="D">电动</option>
 			<option value="X">无排放阶段</option>
 		</select>
