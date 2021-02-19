@@ -8,7 +8,7 @@ import java.util.List;
 //关于AB台账相关
 @Data
 public class ABAccount {
-    private Integer xh;    //序号
+    private Integer _row_number;    //序号
     private String inLicensePlate;//车牌号
     private String inControllerNo;//入口编码
     private String fullName;//入口名称
@@ -39,6 +39,10 @@ public class ABAccount {
     private Integer wuZuzhiPageSize;//每一页显示的条数
     private List<String> controllerDoorList;
     private String controllerDoor;//门信息
+
+    private Integer startPageNum;
+    private Integer endPageNum;
+
 
 
 

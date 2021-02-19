@@ -1,6 +1,7 @@
 var config = {
 	"inoutConfig":[
 		{field:"ck",checkbox:"true",width:100},
+		{field:"_row_number",title:"序号",width:100,align:"center"},
 		{field:"inLicensePlate",title:"车牌号",width:100,align:"center"},
 		{field:"inControllerNo",title:"入口编号",width:100,align:"center",hidden:true},
 		{field:"fullName",title:"入口名称",width:100,align:"center"},
@@ -58,7 +59,7 @@ function onload_colunmn(){
 		columns:[config["inoutConfig"]],
 		nowrap:false,
 		pagination:true,
-		rownumbers:true,
+		rownumbers:false,
 		onBeforeLoad:beforeLoad,
 		pageSize:25,   //表格中每页显示的行数
 		pageList:[25,50,100,200,500,1000],

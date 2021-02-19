@@ -22,4 +22,10 @@ public class ABAccountServiceImpl implements ABAccountService {
         List<ABAccount> abAccountsList= aBAccountMapper.select(aBAccount);
         return abAccountsList;
     }
+
+    @Override
+    public Long selectCount(ABAccount aBAccount) {
+        Long total= aBAccountMapper.selectCount(aBAccount);
+        return total;
+    }
 }

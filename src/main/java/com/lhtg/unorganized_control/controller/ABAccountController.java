@@ -37,6 +37,10 @@ public class ABAccountController {
 
     @Autowired
     private ABAccountService aBAccountService;
+
+
+
+
     //图片流
     @RequestMapping("getImages")
     public void getImages(HttpServletRequest request, HttpServletResponse response, String name)  throws IOException {
@@ -77,10 +81,18 @@ public class ABAccountController {
         String strDateYmdFormat = "yyyy-MM-dd";
         SimpleDateFormat sdfYmdhms = new SimpleDateFormat(strDateYmdhmsFormat);
         SimpleDateFormat sdfYmd = new SimpleDateFormat(strDateYmdFormat);
-        Page pages = PageHelper.startPage(aBAccount.getWuZuzhiCurrentPage(),aBAccount.getWuZuzhiPageSize());
+        Integer page =  Integer.valueOf(aBAccount.getWuZuzhiCurrentPage());
+        Integer rows =  Integer.valueOf(aBAccount.getWuZuzhiPageSize());
+        //Page pages = PageHelper.startPage(aBAccount.getWuZuzhiCurrentPage(),aBAccount.getWuZuzhiPageSize());
         String ControllerDoor = java.net.URLDecoder.decode(aBAccount.getControllerDoor(), "UTF-8");
         String[] doors = ControllerDoor.split(",");
-        aBAccount.setControllerDoorList(Arrays.asList(doors));
+        if(doors.length == 1 && "-1".equals(doors[0])){
+
+        }else{
+            aBAccount.setControllerDoorList(Arrays.asList(doors));
+        }
+        aBAccount.setStartPageNum((page-1)*rows);
+        aBAccount.setEndPageNum((page*rows));
         List<ABAccount> list = aBAccountService.select(aBAccount);
 
         HSSFWorkbook workbook = new HSSFWorkbook();
@@ -279,7 +291,7 @@ public class ABAccountController {
     //查询AB台账信息
     @RequestMapping("/select")
     public String  select(Integer page, Integer rows, ABAccount aBAccount) throws Exception {
-        Page pages = PageHelper.startPage(page,rows);
+       // Page pages = PageHelper.startPage(page,rows);
         String ControllerDoor = java.net.URLDecoder.decode(aBAccount.getControllerDoor(), "UTF-8");
         //String ControllerDoor = new String(Base64.decodeBase64(aBAccount.getControllerDoor()));
         String[] doors = ControllerDoor.split(",");
@@ -288,13 +300,16 @@ public class ABAccountController {
         }else{
             aBAccount.setControllerDoorList(Arrays.asList(doors));
         }
+        aBAccount.setStartPageNum((page-1)*rows);
+        aBAccount.setEndPageNum((page*rows));
+        Long total = aBAccountService.selectCount(aBAccount);
 
         List<ABAccount> list = aBAccountService.select(aBAccount);
-        PageInfo<ABAccount> pageInfo = new PageInfo<>(list);
-        Long total = pages.getTotal();
+        //PageInfo<ABAccount> pageInfo = new PageInfo<>(list);
+        //Long total = pages.getTotal();
         Map map = new HashMap();
         map.put("total", total);
-        map.put("rows", JSONArray.fromObject(pageInfo.getList()));
+        map.put("rows", JSONArray.fromObject(list));
         String mmmm =  JSONObject.fromObject(map).toString();
         return mmmm;
     }
